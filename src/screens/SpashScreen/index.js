@@ -1,14 +1,15 @@
 import React from 'react';
-import { StyleSheet, View, Image, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { StatusBar } from 'expo-status-bar';
 
-import Logo from '../../../assets/logo.png';
+import { Logo } from '../../components';
+import { CustomText } from '../../components';
 
 export const SpashScreen = () => {
   return (
     <View style={styles.container}>
-      <Image source={Logo} style={styles.logo} />
-      <Text style={styles.title}>Star Wars Wiki</Text>
+      <Logo />
+      <CustomText>Star Wars Wiki</CustomText>
       <StatusBar style="auto" />
     </View>
   );
@@ -21,17 +22,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
-
-  logo: {
-    width: 64,
-    height: 64,
-  },
-
-  title: {
-    marginTop: 12,
-
-    color: '#ffffff',
-    fontSize: 24,
-    fontWeight: 'bold'
-  }
-});
+})

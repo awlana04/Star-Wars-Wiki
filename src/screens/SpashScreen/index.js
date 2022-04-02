@@ -12,4 +12,4 @@ export const SpashScreen = () => {
       <Text>Star Wars Wiki</Text>
     </Container>
   );
-}
+};

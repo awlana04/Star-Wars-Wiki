@@ -1,9 +1,33 @@
 import React from 'react';
+import {
+  useFonts,
+  SourceSansPro_400Regular,
+  SourceSansPro_600SemiBold,
+  SourceSansPro_700Bold,
+  SourceSansPro_900Black,
+} from '@expo-google-fonts/source-sans-pro';
+import AppLoading from 'expo-app-loading';
+import { ThemeProvider } from 'styled-components';
 
 import { SpashScreen } from './src/screens/SpashScreen';
 
+import { theme } from './src/styles';
+
 export default function App() {
- return (
-  <SpashScreen />
- ) 
+  let [fontsLoaded] = useFonts({
+    SourceSansPro_400Regular,
+    SourceSansPro_600SemiBold,
+    SourceSansPro_700Bold,
+    SourceSansPro_900Black,
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  }
+
+  return (
+    <ThemeProvider theme={theme}>
+      <SpashScreen />
+    </ThemeProvider>
+  );
 }

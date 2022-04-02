@@ -1,13 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
-import { Logo } from '../../components';
-import { Text } from '../../components';
+import { Logo, Text, Container } from '../../components';
 
-import { Container } from './styles';
+export const SpashScreen = ({ navigation }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      navigation.navigate('Home');
+    }, 2000);
+  }, [navigation]);
 
-export const SpashScreen = () => {
   return (
-    <Container>
+    <Container align="center" justify="center">
       <Logo />
       <Text>Star Wars Wiki</Text>
     </Container>

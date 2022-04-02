@@ -1,18 +1,9 @@
 import React from 'react';
-import { StyleSheet, Text } from 'react-native';
 
-export const CustomText = ({ children }) => {
+import { TextContainer } from './styles';
+
+export const Text = ({ children }) => {
   return (
-    <Text style={styles.title}>{children}</Text>
-  )
+    <TextContainer>{children}</TextContainer>
+  );
 }
-
-const styles = StyleSheet.create({
-  title: {
-    marginTop: 12,
-
-    color: '#ffffff',
-    fontSize: 24,
-    fontWeight: 'bold'
-  }
-});

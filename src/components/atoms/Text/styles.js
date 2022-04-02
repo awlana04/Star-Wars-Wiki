@@ -4,6 +4,6 @@ export const TextContainer = styled.Text`
   margin-top: ${({ theme }) => theme.metrics.px(12)}px;
 
   color: ${({ theme }) => theme.colors.white};
-  font-style: ${({ theme }) => theme.fonts.bold};
+  font-family: ${({ theme }) => theme.fonts.bold};
   font-size: ${({ theme }) => theme.metrics.px(24)}px;
 `;

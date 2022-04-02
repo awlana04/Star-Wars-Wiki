@@ -7,7 +7,7 @@ const figmaWidth = 375;
 const px = valuePx => {
   const widthPercent = (valuePx / figmaWidth) * 100;
   const screenPixel = PixelRatio.roundToNearestPixel(
-    (width * parseFloat(width)) / 100,
+    (width * parseFloat(widthPercent)) / 100,
   );
 
   return screenPixel;

@@ -12,7 +12,7 @@ import {
   IconButtonsView,
 } from './styles';
 
-export const Hero = ({ item }) => {
+export const Hero = ({ item, onDetail }) => {
   const { image_url, type, title, subtitle } = item;
 
   return (
@@ -23,9 +23,9 @@ export const Hero = ({ item }) => {
         }}
       >
         <HeroGradient colors={[colors.dark, 'transparent', colors.dark]}>
-          <Logo size="small" />
+          {!onDetail && <Logo size="small" />}
 
-          <Tag marginTop={200}>{type}</Tag>
+          <Tag marginTop={onDetail ? 224 : 200}>{type}</Tag>
 
           <Text marginTop={8} fontFamily="bold" size={28}>
             {title}
@@ -33,7 +33,9 @@ export const Hero = ({ item }) => {
           <Text size={18}>{subtitle}</Text>
 
           <IconButtonsView>
-            <IconButton label="Favoritos" iconName="add-circle-outline" />
+            {!onDetail && (
+              <IconButton label="Favoritos" iconName="add-circle-outline" />
+            )}
             <PlayButton />
             <IconButton
               label="Saiba Mais"

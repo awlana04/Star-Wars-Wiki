@@ -9,7 +9,7 @@ export const Detail = () => {
 
   return (
     <ScreenScrollView>
-      <Hero item={selectedData} withoutLogo />
+      <Hero item={selectedData} onDetail />
       <GoBackButton />
     </ScreenScrollView>
   );

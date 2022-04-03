@@ -4,8 +4,11 @@ import logoImage from '../../../../assets/logo.png';
 
 import { ImageContainer } from './styles';
 
-export const Logo = () => {
-  return (
-    <ImageContainer source={logoImage} />
-  );
-}
+const sizes = {
+  small: 28,
+  large: 64,
+};
+
+export const Logo = ({ size }) => {
+  return <ImageContainer source={logoImage} size={sizes[size || 'large']} />;
+};

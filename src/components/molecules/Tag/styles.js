@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const TagContainer = styled.View`
   width: auto;
-  max-width: ${({ theme }) => theme.metrics.px(80)}px;
+  max-width: ${({ theme }) => theme.metrics.px(88)}px;
   height: ${({ theme }) => theme.metrics.px(24)}px;
   margin-top: ${({ theme, marginTop }) => theme.metrics.px(marginTop || 0)}px;
   margin-left: ${({ theme, marginLeft }) =>
@@ -11,7 +11,6 @@ export const TagContainer = styled.View`
     theme.metrics.px(marginBottom || 0)}px;
   margin-right: ${({ theme, marginRight }) =>
     theme.metrics.px(marginRight || 0)}px;
-  padding-horizontal: ${({ theme }) => theme.metrics.px(4)}px;
 
   background-color: ${({ theme }) => theme.colors.red};
   border-radius: ${({ theme }) => theme.metrics.px(24)}px;

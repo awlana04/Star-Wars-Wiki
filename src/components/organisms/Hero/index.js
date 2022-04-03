@@ -12,23 +12,25 @@ import {
   IconButtonsView,
 } from './styles';
 
-export const Hero = () => {
+export const Hero = ({ item }) => {
+  const { image_url, type, title, subtitle } = item;
+
   return (
     <HeroContainer>
       <HeroImageBackground
         source={{
-          uri: 'https://static.wikia.nocookie.net/ptstarwars/images/c/c9/Vingan%C3%A7a_dos_sith_p%C3%B4ster.png/revision/latest?cb=20130922212409',
+          uri: image_url,
         }}
       >
         <HeroGradient colors={[colors.dark, 'transparent', colors.dark]}>
           <Logo size="small" />
 
-          <Tag marginTop={200}>Filme</Tag>
+          <Tag marginTop={200}>{type}</Tag>
 
           <Text marginTop={8} fontFamily="bold" size={28}>
-            Episódio III
+            {title}
           </Text>
-          <Text size={18}>A Vingança dos Siths</Text>
+          <Text size={18}>{subtitle}</Text>
 
           <IconButtonsView>
             <IconButton label="Favoritos" iconName="add-circle-outline" />

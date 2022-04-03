@@ -15,3 +15,8 @@ export const Container = styled.View`
   display: flex;
   flex-direction: ${({ direction }) => direction || 'column'};
 `;
+
+export const ScreenScrollView = styled.ScrollView`
+  background-color: ${({ background, theme }) =>
+    theme.colors[background || 'dark']};
+`;

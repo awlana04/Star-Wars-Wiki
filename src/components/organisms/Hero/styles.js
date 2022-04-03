@@ -23,3 +23,13 @@ export const HeroGradient = styled(LinearGradient)`
   display: flex;
   flex-direction: column;
 `;
+
+export const IconButtonsView = styled.View`
+  width: 100%;
+  margin-top: ${({ theme }) => theme.metrics.px(12)}px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
+`;

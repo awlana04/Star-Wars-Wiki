@@ -3,9 +3,14 @@ import React from 'react';
 import { colors } from '~/styles/colors';
 
 import { Logo, Text } from '~/components/atoms';
-import { Tag } from '../../molecules';
+import { Tag, IconButton, PlayButton } from '~/components/molecules';
 
-import { HeroContainer, HeroImageBackground, HeroGradient } from './styles';
+import {
+  HeroContainer,
+  HeroImageBackground,
+  HeroGradient,
+  IconButtonsView,
+} from './styles';
 
 export const Hero = () => {
   return (
@@ -18,12 +23,21 @@ export const Hero = () => {
         <HeroGradient colors={[colors.dark, 'transparent', colors.dark]}>
           <Logo size="small" />
 
-          <Tag marginTop={214}>Filme</Tag>
+          <Tag marginTop={200}>Filme</Tag>
 
           <Text marginTop={8} fontFamily="bold" size={28}>
             Episódio III
           </Text>
           <Text size={18}>A Vingança dos Siths</Text>
+
+          <IconButtonsView>
+            <IconButton label="Favoritos" iconName="add-circle-outline" />
+            <PlayButton />
+            <IconButton
+              label="Saiba Mais"
+              iconName="information-circle-outline"
+            />
+          </IconButtonsView>
         </HeroGradient>
       </HeroImageBackground>
     </HeroContainer>

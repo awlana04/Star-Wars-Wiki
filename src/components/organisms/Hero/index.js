@@ -3,6 +3,7 @@ import React from 'react';
 import { colors } from '~/styles/colors';
 
 import { Logo, Text } from '~/components/atoms';
+import { Tag } from '../../molecules';
 
 import { HeroContainer, HeroImageBackground, HeroGradient } from './styles';
 
@@ -17,8 +18,12 @@ export const Hero = () => {
         <HeroGradient colors={[colors.dark, 'transparent', colors.dark]}>
           <Logo size="small" />
 
-          <Text>Episódio III</Text>
-          <Text>A Vingança dos Siths</Text>
+          <Tag marginTop={214}>Filme</Tag>
+
+          <Text marginTop={8} fontFamily="bold" size={28}>
+            Episódio III
+          </Text>
+          <Text size={18}>A Vingança dos Siths</Text>
         </HeroGradient>
       </HeroImageBackground>
     </HeroContainer>

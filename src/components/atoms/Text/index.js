@@ -2,8 +2,6 @@ import React from 'react';
 
 import { TextContainer } from './styles';
 
-export const Text = ({ children }) => {
-  return (
-    <TextContainer>{children}</TextContainer>
-  );
-}
+export const Text = ({ children, ...props }) => {
+  return <TextContainer {...props}>{children}</TextContainer>;
+};

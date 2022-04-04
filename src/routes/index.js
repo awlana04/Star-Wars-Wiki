@@ -23,8 +23,12 @@ const BottomRoute = () => {
         headerShown: false,
         tabBarActiveTintColor: theme.colors.red,
         tabBarInactiveTintColor: theme.colors.white,
+        tabBarLabelStyle: {
+          fontSize: theme.metrics.px(11),
+          fontFamily: theme.fonts.semiBold,
+        },
         tabBarStyle: {
-          height: theme.metrics.px(54),
+          height: theme.metrics.px(48),
           paddingTop: theme.metrics.px(6),
           paddingBottom: theme.metrics.px(6),
           backgroundColor: theme.colors.black,
@@ -32,7 +36,7 @@ const BottomRoute = () => {
         },
         tabBarIcon: ({ focused, color, size }) => {
           return (
-            <Ionicons name={routeIcons[route.name]} size={size} color={color} />
+            <Ionicons name={routeIcons[route.name]} size={22} color={color} />
           );
         },
       })}

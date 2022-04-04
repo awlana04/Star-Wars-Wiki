@@ -10,7 +10,7 @@ import { HomeListContainer } from './styles';
 export const HomeList = ({ data, title }) => {
   return (
     <HomeListContainer>
-      <Text marginTop={24} fontFamily="black" size={18}>
+      <Text marginTop={24} marginLeft={24} fontFamily="black" size={18}>
         {title}
       </Text>
 

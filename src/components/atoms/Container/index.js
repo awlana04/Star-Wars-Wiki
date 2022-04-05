@@ -16,7 +16,16 @@ export const Container = styled.View`
   flex-direction: ${({ direction }) => direction || 'column'};
 `;
 
-export const ScreenScrollView = styled.ScrollView`
+export const ScreenScrollView = styled.ScrollView.attrs(
+  ({ theme, withPadding }) => ({
+    contentContainerStyle: withPadding
+      ? {
+          paddingHorizontal: theme.metrics.px(24),
+          paddingVertical: theme.metrics.px(56),
+        }
+      : {},
+  }),
+)`
   background-color: ${({ background, theme }) =>
     theme.colors[background || 'dark']};
 `;

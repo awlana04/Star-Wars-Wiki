@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+import { useFavorites } from '~/services/hooks';
 
 import { colors } from '~/styles/colors';
 
@@ -13,7 +15,41 @@ import {
 } from './styles';
 
 export const Hero = ({ item, onDetail }) => {
+  const [loading, setLoading] = useState(true);
+  const [isFavorite, setIsFavorite] = useState(false);
+
+  const { addFavorite, getFavorites, removeFavorite } = useFavorites();
+
   const { image_url, type, title, subtitle } = item;
+
+  const checkIsFavorite = async () => {
+    setLoading(true);
+
+    const favorites = await getFavorites();
+
+    const isInFavorite = favorites.filter(
+      favorite => favorite.id === item.id && favorite.type === item.title,
+    );
+
+    setIsFavorite(isInFavorite.length > 0);
+    setLoading(false);
+  };
+
+  useEffect(() => {
+    checkIsFavorite();
+  }, [checkIsFavorite]);
+
+  const addDataToFavorites = async () => {
+    await addFavorite(item);
+
+    checkIsFavorite();
+  };
+
+  const removeDataFromFavorites = async () => {
+    await removeFavorite(item);
+
+    checkIsFavorite();
+  };
 
   return (
     <HeroContainer>
@@ -33,14 +69,22 @@ export const Hero = ({ item, onDetail }) => {
           <Text size={18}>{subtitle}</Text>
 
           <IconButtonsView>
-            {!onDetail && (
-              <IconButton label="Favoritos" iconName="add-circle-outline" />
-            )}
-            <PlayButton />
             <IconButton
-              label="Saiba Mais"
-              iconName="information-circle-outline"
+              onPress={() =>
+                isFavorite ? removeDataFromFavorites() : addDataToFavorites()
+              }
+              label={isFavorite ? 'Remover Favoritos' : 'Adicionar Favoritos'}
+              iconName={
+                isFavorite ? 'remove-circle-outline' : 'add-circle-outline'
+              }
             />
+            <PlayButton />
+            {!onDetail && (
+              <IconButton
+                label="Saiba Mais"
+                iconName="information-circle-outline"
+              />
+            )}
           </IconButtonsView>
         </HeroGradient>
       </HeroImageBackground>

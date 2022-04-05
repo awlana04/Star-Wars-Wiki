@@ -13,4 +13,6 @@ export const TextContainer = styled.Text`
   font-family: ${({ theme, fontFamily }) =>
     theme.fonts[fontFamily || 'regular']};
   font-size: ${({ theme, size }) => size || theme.metrics.px(24)}px;
+  line-height: ${({ theme, lineHeight, size }) =>
+    theme.metrics.px(lineHeight || size || 24)}px;
 `;

@@ -1,6 +1,6 @@
 import { Dimensions, PixelRatio } from 'react-native';
 
-const { width } = Dimensions.get('window');
+const { width, height } = Dimensions.get('window');
 
 const figmaWidth = 375;
 
@@ -16,4 +16,5 @@ const px = valuePx => {
 export const metrics = {
   px,
   width,
+  height,
 };

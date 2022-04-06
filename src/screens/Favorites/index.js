@@ -30,7 +30,7 @@ export const Favorites = ({ navigation }) => {
         Favoritos
       </Text>
 
-      <GridList data={favoritesList} />
+      <GridList type="favorites" data={favoritesList} />
     </ScreenScrollView>
   );
 };

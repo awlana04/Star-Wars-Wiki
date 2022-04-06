@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigation } from '@react-navigation/native';
 
 import { useFavorites } from '~/services/hooks';
+import { dataStore } from '~/services/stores';
 
 import { colors } from '~/styles/colors';
 
@@ -12,14 +14,24 @@ import {
   HeroImageBackground,
   HeroGradient,
   IconButtonsView,
+  ButtonView,
 } from './styles';
 
 export const Hero = ({ item, onDetail }) => {
   const [isFavorite, setIsFavorite] = useState(false);
 
   const { addFavorite, getFavorites, removeFavorite } = useFavorites();
+  const { setSelectedData } = dataStore();
 
   const { image_url, type, title, subtitle } = item;
+
+  const navigation = useNavigation();
+
+  const onPressPlay = () => {
+    navigation.navigate('Watch');
+
+    setSelectedData(item);
+  };
 
   const checkIsFavorite = async () => {
     const favorites = await getFavorites();
@@ -65,22 +77,28 @@ export const Hero = ({ item, onDetail }) => {
           <Text size={18}>{subtitle}</Text>
 
           <IconButtonsView>
-            <IconButton
-              onPress={() =>
-                isFavorite ? removeDataFromFavorites() : addDataToFavorites()
-              }
-              label={isFavorite ? 'Remover Favoritos' : 'Adicionar Favoritos'}
-              iconName={
-                isFavorite ? 'remove-circle-outline' : 'add-circle-outline'
-              }
-            />
-            <PlayButton />
-            {!onDetail && (
+            <ButtonView align="flex-start">
               <IconButton
-                label="Saiba Mais"
-                iconName="information-circle-outline"
+                onPress={() =>
+                  isFavorite ? removeDataFromFavorites() : addDataToFavorites()
+                }
+                label={isFavorite ? 'Remover Favoritos' : 'Adicionar Favoritos'}
+                iconName={
+                  isFavorite ? 'remove-circle-outline' : 'add-circle-outline'
+                }
               />
-            )}
+            </ButtonView>
+            <ButtonView>
+              <PlayButton onPress={onPressPlay} />
+            </ButtonView>
+            <ButtonView align="flex-end">
+              {!onDetail && (
+                <IconButton
+                  label="Saiba Mais"
+                  iconName="information-circle-outline"
+                />
+              )}
+            </ButtonView>
           </IconButtonsView>
         </HeroGradient>
       </HeroImageBackground>

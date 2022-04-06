@@ -6,7 +6,14 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { theme } from '~/styles/theme';
 
-import { SpashScreen, Home, Detail, Search, Favorites } from '../screens';
+import {
+  SpashScreen,
+  Home,
+  Detail,
+  Search,
+  Favorites,
+  WatchScreen,
+} from '../screens';
 
 const routeIcons = {
   Home: 'home-outline',
@@ -65,6 +72,7 @@ export const Routes = () => {
         <Stack.Screen name="Spash" component={SpashScreen} />
         <Stack.Screen name="Home" component={BottomRoute} />
         <Stack.Screen name="Detail" component={Detail} />
+        <Stack.Screen name="Watch" component={WatchScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

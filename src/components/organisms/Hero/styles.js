@@ -31,5 +31,11 @@ export const IconButtonsView = styled.View`
   display: flex;
   flex-direction: row;
   align-items: baseline;
-  justify-content: space-between;
+  justify-content: center;
+`;
+
+export const ButtonView = styled.View`
+  flex: 1;
+  flex-direction: column;
+  align-items: ${({ align }) => align || 'center'};
 `;

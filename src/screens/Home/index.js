@@ -2,7 +2,13 @@ import React, { useEffect, useState } from 'react';
 
 import { useGetData } from '~/services/hooks';
 
-import { ScreenScrollView, HomeList, Hero, Loader } from '~/components';
+import {
+  Container,
+  Loader,
+  ScreenScrollView,
+  Hero,
+  HomeList,
+} from '~/components';
 
 export const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -28,9 +34,9 @@ export const Home = () => {
 
   if (loading) {
     return (
-      <ScreenScrollView>
+      <Container align="center" justify="center">
         <Loader />
-      </ScreenScrollView>
+      </Container>
     );
   }
 

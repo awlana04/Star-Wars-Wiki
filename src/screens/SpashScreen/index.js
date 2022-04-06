@@ -12,7 +12,7 @@ export const SpashScreen = ({ navigation }) => {
   return (
     <Container align="center" justify="center">
       <Logo />
-      <Text marginTop={12} fontFamily="bold">
+      <Text marginTop={12} fontFamily="bold" size={24}>
         Star Wars Wiki
       </Text>
     </Container>

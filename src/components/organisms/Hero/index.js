@@ -33,6 +33,12 @@ export const Hero = ({ item, onDetail }) => {
     setSelectedData(item);
   };
 
+  const onPressInfo = () => {
+    navigation.navigate('Detail');
+
+    setSelectedData(item);
+  };
+
   const checkIsFavorite = async () => {
     const favorites = await getFavorites();
 
@@ -79,12 +85,12 @@ export const Hero = ({ item, onDetail }) => {
           <IconButtonsView>
             <ButtonView align="flex-start">
               <IconButton
-                onPress={() =>
-                  isFavorite ? removeDataFromFavorites() : addDataToFavorites()
-                }
                 label={isFavorite ? 'Remover Favoritos' : 'Adicionar Favoritos'}
                 iconName={
                   isFavorite ? 'remove-circle-outline' : 'add-circle-outline'
+                }
+                onPress={() =>
+                  isFavorite ? removeDataFromFavorites() : addDataToFavorites()
                 }
               />
             </ButtonView>
@@ -96,6 +102,7 @@ export const Hero = ({ item, onDetail }) => {
                 <IconButton
                   label="Saiba Mais"
                   iconName="information-circle-outline"
+                  onPress={onPressInfo}
                 />
               )}
             </ButtonView>

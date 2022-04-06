@@ -1,14 +1,19 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import { useFavorites } from '~/services/hooks';
 
 import { ScreenScrollView, Text } from '~/components/atoms';
+import { GridList } from '~/components/molecules';
 
-export const Favorites = () => {
+export const Favorites = ({ navigation }) => {
+  const [favoritesList, setFavoritesList] = useState([]);
+
   const { getFavorites } = useFavorites();
 
   const callGetFavorites = async () => {
-    await getFavorites();
+    const favorites = await getFavorites();
+
+    setFavoritesList(favorites);
   };
 
   useEffect(() => {
@@ -21,9 +26,11 @@ export const Favorites = () => {
 
   return (
     <ScreenScrollView withPadding>
-      <Text fontFamily="bold" size={28}>
+      <Text marginBottom={24} fontFamily="bold" size={28}>
         Favoritos
       </Text>
+
+      <GridList data={favoritesList} />
     </ScreenScrollView>
   );
 };

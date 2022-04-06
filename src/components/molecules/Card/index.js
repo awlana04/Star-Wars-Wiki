@@ -5,7 +5,18 @@ import { dataStore } from '~/services/stores';
 
 import { CardContainer, CardImage } from './styles';
 
-export const Card = ({ item }) => {
+const sizes = {
+  small: {
+    width: 88,
+    height: 124,
+  },
+  large: {
+    width: 102,
+    height: 150,
+  },
+};
+
+export const Card = ({ item, size }) => {
   const { setSelectedData } = dataStore();
 
   const navigation = useNavigation();
@@ -16,7 +27,10 @@ export const Card = ({ item }) => {
   };
 
   return (
-    <CardContainer onPress={() => onSelectItem()}>
+    <CardContainer
+      onPress={() => onSelectItem()}
+      size={size ? sizes[size] : sizes.small}
+    >
       <CardImage source={{ uri: item.image_url }} />
     </CardContainer>
   );

@@ -7,14 +7,14 @@ export const useFavorites = () => {
     try {
       let newDb;
 
-      const value = await AsyncStorage.getItem('@StarWarsWiki:favorites');
+      const value = await AsyncStorage.getItem(DB_KEY);
 
       if (value !== null) {
         const db = JSON.parse(value);
 
-        newDb = Array[db].push(data);
-      } else {
         newDb = [...db, data];
+      } else {
+        newDb = [data];
       }
 
       const jsonValue = JSON.stringify(newDb);
@@ -50,7 +50,7 @@ export const useFavorites = () => {
       if (value !== null) {
         const db = JSON.parse(value);
 
-        newDb = Array[db].filter(
+        newDb = db.filter(
           item => item.id !== data.id && item.type !== data.type,
         );
       } else {
@@ -59,7 +59,9 @@ export const useFavorites = () => {
 
       const jsonValue = JSON.stringify(newDb);
 
-      await AsyncStorage.removeItem(DB_KEY, jsonValue);
+      await AsyncStorage.setItem(DB_KEY, jsonValue);
+
+      return newDb;
     } catch (error) {
       console.log({ error });
 

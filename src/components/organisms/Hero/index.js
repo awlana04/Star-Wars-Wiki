@@ -15,7 +15,6 @@ import {
 } from './styles';
 
 export const Hero = ({ item, onDetail }) => {
-  const [loading, setLoading] = useState(true);
   const [isFavorite, setIsFavorite] = useState(false);
 
   const { addFavorite, getFavorites, removeFavorite } = useFavorites();
@@ -23,16 +22,13 @@ export const Hero = ({ item, onDetail }) => {
   const { image_url, type, title, subtitle } = item;
 
   const checkIsFavorite = async () => {
-    setLoading(true);
-
     const favorites = await getFavorites();
 
     const isInFavorite = favorites.filter(
-      favorite => favorite.id === item.id && favorite.type === item.title,
+      favorite => favorite.id === item.id && favorite.type === item.type,
     );
 
     setIsFavorite(isInFavorite.length > 0);
-    setLoading(false);
   };
 
   useEffect(() => {

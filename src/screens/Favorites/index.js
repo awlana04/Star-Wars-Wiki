@@ -8,7 +8,7 @@ export const Favorites = () => {
   const { getFavorites } = useFavorites();
 
   const callGetFavorites = async () => {
-    const favorites = await getFavorites();
+    await getFavorites();
   };
 
   useEffect(() => {

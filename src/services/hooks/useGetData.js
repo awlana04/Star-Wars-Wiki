@@ -25,8 +25,21 @@ export const useGetData = () => {
     }
   };
 
+  const getSearchResult = async query => {
+    try {
+      const response = await api.get(`search?query=${query}`);
+
+      return response.data;
+    } catch (error) {
+      console.log({ error });
+
+      return { error };
+    }
+  };
+
   return {
     getFilms,
     getCharacters,
+    getSearchResult,
   };
 };

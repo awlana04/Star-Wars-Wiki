@@ -16,9 +16,9 @@ import {
 } from '../screens';
 
 const routeIcons = {
-  Home: 'home-outline',
-  Search: 'search-outline',
-  Favorites: 'heart-outline',
+  HomeTab: 'home-outline',
+  SearchTab: 'search-outline',
+  FavoritesTab: 'heart-outline',
 };
 
 const BottomRoute = () => {
@@ -48,14 +48,18 @@ const BottomRoute = () => {
         },
       })}
     >
-      <Tab.Screen name="Home" component={Home} />
       <Tab.Screen
-        name="Search"
+        name="HomeTab"
+        component={Home}
+        options={{ tabBarLabel: 'Home' }}
+      />
+      <Tab.Screen
+        name="SearchTab"
         component={Search}
         options={{ tabBarLabel: 'Pesquisar' }}
       />
       <Tab.Screen
-        name="Favorites"
+        name="FavoritesTab"
         component={Favorites}
         options={{ tabBarLabel: 'Favoritos' }}
       />

@@ -2,9 +2,9 @@ import React from 'react';
 
 import { InputContainer, InputText } from './styles';
 
-export const Input = ({ ...props }) => {
+export const Input = props => {
   return (
-    <InputContainer>
+    <InputContainer {...props}>
       <InputText {...props} />
     </InputContainer>
   );

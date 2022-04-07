@@ -2,17 +2,18 @@ import React from 'react';
 import { FlatList } from 'react-native';
 
 import { Container, Text } from '~/components/atoms';
-import { Card } from '~/components/molecules';
+import { Card } from '../Card';
 
 import KyloRen from '../../../../assets/kylo_ren.png';
 import StormTrooper from '../../../../assets/storm_trooper.png';
 
 import { SeparatorView, NoDataImage } from './styles';
 
-export const GridList = ({ data, type }) => {
+export const GridList = ({ data, type, loading }) => {
   return (
     <FlatList
       numColumns={3}
+      refreshing={loading}
       data={data}
       renderItem={({ item }) => <Card size="large" item={item} />}
       keyExtractor={item => String(item.id)}

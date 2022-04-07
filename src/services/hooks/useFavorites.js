@@ -51,7 +51,7 @@ export const useFavorites = () => {
         const db = JSON.parse(value);
 
         newDb = db.filter(
-          item => item.id !== data.id && item.type !== data.type,
+          item => item.id !== data.id && item.title !== data.title,
         );
       } else {
         newDb = [];

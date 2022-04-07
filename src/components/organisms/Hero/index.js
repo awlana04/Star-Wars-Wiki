@@ -7,7 +7,12 @@ import { dataStore } from '~/services/stores';
 import { colors } from '~/styles/colors';
 
 import { Logo, Text } from '~/components/atoms';
-import { Tag, IconButton, PlayButton } from '~/components/molecules';
+import {
+  Tag,
+  IconButton,
+  PlayButton,
+  FavoritesStateModal,
+} from '~/components/molecules';
 
 import {
   HeroContainer,
@@ -19,6 +24,7 @@ import {
 
 export const Hero = ({ item, onDetail }) => {
   const [isFavorite, setIsFavorite] = useState(false);
+  const [showFavoriteModal, setShowFavoriteModal] = useState(null);
 
   const { addFavorite, getFavorites, removeFavorite } = useFavorites();
   const { setSelectedData } = dataStore();
@@ -39,6 +45,12 @@ export const Hero = ({ item, onDetail }) => {
     setSelectedData(item);
   };
 
+  const closeFavoriteModal = () => {
+    setTimeout(() => {
+      setShowFavoriteModal(null);
+    }, 3000);
+  };
+
   const checkIsFavorite = async () => {
     const favorites = await getFavorites();
 
@@ -56,12 +68,16 @@ export const Hero = ({ item, onDetail }) => {
   const addDataToFavorites = async () => {
     await addFavorite(item);
 
+    setShowFavoriteModal('added');
+    closeFavoriteModal();
     checkIsFavorite();
   };
 
   const removeDataFromFavorites = async () => {
     await removeFavorite(item);
 
+    setShowFavoriteModal('removed');
+    closeFavoriteModal();
     checkIsFavorite();
   };
 
@@ -109,6 +125,13 @@ export const Hero = ({ item, onDetail }) => {
           </IconButtonsView>
         </HeroGradient>
       </HeroImageBackground>
+      {!!showFavoriteModal && (
+        <FavoritesStateModal
+          type={showFavoriteModal}
+          visible={!!showFavoriteModal}
+          onClose={() => showFavoriteModal(null)}
+        />
+      )}
     </HeroContainer>
   );
 };

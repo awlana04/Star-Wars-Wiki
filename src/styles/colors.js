@@ -1,8 +1,9 @@
 export const colors = {
   white: '#ffffff',
   light: '#e5e5e5',
+  lightTransparent: 'rgba(255, 255, 255, 0.2)',
   red: '#e60c0d',
-  grey: '#5b5b5b',
   dark: '#161616',
+  darkTransparent: 'rgba(22, 22, 22, 0.7)',
   black: '#000000',
 };

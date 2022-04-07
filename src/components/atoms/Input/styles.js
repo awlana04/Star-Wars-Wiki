@@ -22,7 +22,7 @@ export const InputContainer = styled.View`
 `;
 
 export const InputText = styled.TextInput.attrs(({ theme }) => ({
-  placeholderTextColor: theme.colors.grey,
+  placeholderTextColor: theme.colors.lightTransparent,
 }))`
   width: 100%;
   height: 100%;

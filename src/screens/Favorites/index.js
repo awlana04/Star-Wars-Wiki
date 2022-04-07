@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { useFavorites } from '~/services/hooks';
 
-import { ScreenScrollView, Text } from '~/components/atoms';
+import { ScreenView, Text } from '~/components/atoms';
 import { GridList } from '~/components/molecules';
 
 export const Favorites = ({ navigation }) => {
@@ -25,12 +25,12 @@ export const Favorites = ({ navigation }) => {
   }, [callGetFavorites]);
 
   return (
-    <ScreenScrollView withPadding>
+    <ScreenView>
       <Text marginBottom={24} fontFamily="bold" size={28}>
         Favoritos
       </Text>
 
       <GridList type="favorites" data={favoritesList} />
-    </ScreenScrollView>
+    </ScreenView>
   );
 };

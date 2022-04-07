@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { ScreenScrollView, Text, Input } from '~/components/atoms';
+import { ScreenView, Text, Input } from '~/components/atoms';
 import { GridList } from '~/components/molecules';
 
 export const Search = () => {
@@ -8,7 +8,7 @@ export const Search = () => {
   const [results, setResults] = useState([]);
 
   return (
-    <ScreenScrollView horizontal={false} withPadding>
+    <ScreenView>
       <Text marginBottom={24} fontFamily="bold" size={28}>
         Pesquisar
       </Text>
@@ -16,6 +16,6 @@ export const Search = () => {
       <Input placeholder="Pesquise por Título ou Subtítulo do Filme ou Personagem" />
 
       <GridList type="search" data={results} />
-    </ScreenScrollView>
+    </ScreenView>
   );
 };

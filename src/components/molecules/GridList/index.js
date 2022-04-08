@@ -19,7 +19,7 @@ export const GridList = ({ data, type, loading }) => {
       keyExtractor={item => String(item.id)}
       ItemSeparatorComponent={() => <SeparatorView />}
       ListEmptyComponent={() => (
-        <Container align="center" justify="center" height={500}>
+        <Container height={500} align="center" justify="center">
           <NoDataImage
             source={type === 'favorites' ? KyloRen : StormTrooper}
             resizeMode="contain"

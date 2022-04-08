@@ -4,8 +4,6 @@ import { useNavigation } from '@react-navigation/native';
 import { useFavorites } from '~/services/hooks';
 import { dataStore } from '~/services/stores';
 
-import { colors } from '~/styles/colors';
-
 import { Logo, Text } from '~/components/atoms';
 import {
   Tag,
@@ -13,6 +11,8 @@ import {
   PlayButton,
   FavoritesStateModal,
 } from '~/components/molecules';
+
+import { colors } from '~/styles/colors';
 
 import {
   HeroContainer,
@@ -26,12 +26,12 @@ export const Hero = ({ item, onDetail }) => {
   const [isFavorite, setIsFavorite] = useState(false);
   const [showFavoriteModal, setShowFavoriteModal] = useState(null);
 
-  const { addFavorite, getFavorites, removeFavorite } = useFavorites();
-  const { setSelectedData } = dataStore();
+  const navigation = useNavigation();
 
   const { image_url, type, title, subtitle } = item;
 
-  const navigation = useNavigation();
+  const { setSelectedData } = dataStore();
+  const { addFavorite, getFavorites, removeFavorite } = useFavorites();
 
   const onPressPlay = () => {
     navigation.navigate('Watch');
@@ -45,12 +45,6 @@ export const Hero = ({ item, onDetail }) => {
     setSelectedData(item);
   };
 
-  const closeFavoriteModal = () => {
-    setTimeout(() => {
-      setShowFavoriteModal(null);
-    }, 3000);
-  };
-
   const checkIsFavorite = async () => {
     const favorites = await getFavorites();
 
@@ -61,9 +55,11 @@ export const Hero = ({ item, onDetail }) => {
     setIsFavorite(isInFavorite.length > 0);
   };
 
-  useEffect(() => {
-    checkIsFavorite();
-  }, [checkIsFavorite]);
+  const closeFavoriteModal = () => {
+    setTimeout(() => {
+      setShowFavoriteModal(null);
+    }, 3000);
+  };
 
   const addDataToFavorites = async () => {
     await addFavorite(item);
@@ -80,6 +76,10 @@ export const Hero = ({ item, onDetail }) => {
     closeFavoriteModal();
     checkIsFavorite();
   };
+
+  useEffect(() => {
+    checkIsFavorite();
+  }, [checkIsFavorite]);
 
   return (
     <HeroContainer>
@@ -101,10 +101,10 @@ export const Hero = ({ item, onDetail }) => {
           <IconButtonsView>
             <ButtonView align="flex-start">
               <IconButton
-                label={isFavorite ? 'Remover Favoritos' : 'Adicionar Favoritos'}
                 iconName={
                   isFavorite ? 'remove-circle-outline' : 'add-circle-outline'
                 }
+                label={isFavorite ? 'Remover Favoritos' : 'Adicionar Favoritos'}
                 onPress={() =>
                   isFavorite ? removeDataFromFavorites() : addDataToFavorites()
                 }
@@ -116,8 +116,8 @@ export const Hero = ({ item, onDetail }) => {
             <ButtonView align="flex-end">
               {!onDetail && (
                 <IconButton
-                  label="Saiba Mais"
                   iconName="information-circle-outline"
+                  label="Saiba Mais"
                   onPress={onPressInfo}
                 />
               )}

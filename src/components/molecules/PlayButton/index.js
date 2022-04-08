@@ -1,8 +1,9 @@
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
-import { theme } from '~/styles/theme';
 import { Text } from '~/components/atoms';
+
+import { theme } from '~/styles/theme';
 
 import { PlayButtonContainer } from './styles';
 
@@ -17,8 +18,8 @@ export const PlayButton = ({ onPress }) => {
       <Text
         marginTop={2}
         marginLeft={4}
-        fontFamily="bold"
         color="dark"
+        fontFamily="bold"
         size={14}
       >
         Assistir

@@ -1,10 +1,11 @@
 import React, { useState, useMemo, useCallback } from 'react';
 import YoutubePlayer from 'react-native-youtube-iframe';
 
-import { theme } from '~/styles/theme';
 import { dataStore } from '~/services/stores';
 
 import { Container, GoBackButton } from '~/components/atoms';
+
+import { theme } from '~/styles/theme';
 
 export const WatchScreen = () => {
   const [playing, setPlaying] = useState(false);
@@ -23,10 +24,6 @@ export const WatchScreen = () => {
     }
   }, []);
 
-  const togglePlaying = useCallback(() => {
-    setPlaying(prev => !prev);
-  }, []);
-
   return (
     <Container align="flex-start" justify="center">
       <GoBackButton />
@@ -34,9 +31,9 @@ export const WatchScreen = () => {
       <YoutubePlayer
         width={theme.metrics.width}
         height={theme.metrics.px(300)}
+        onChangeState={onStateChange}
         play={playing}
         videoId={youtubeId}
-        onChangeState={onStateChange}
       />
     </Container>
   );

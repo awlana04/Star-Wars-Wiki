@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 
+import { useGetData } from '~/services/hooks';
+
 import { ScreenView, Text, Input } from '~/components/atoms';
 import { GridList } from '~/components/molecules';
 
-import { useGetData } from '~/services/hooks';
-
 export const Search = () => {
   const [loading, setLoading] = useState(false);
-  const [query, setQuery] = useState('');
   const [results, setResults] = useState([]);
+  const [query, setQuery] = useState('');
 
   const { getSearchResult } = useGetData();
 
@@ -38,12 +38,12 @@ export const Search = () => {
 
       <Input
         marginBottom={24}
-        value={query}
-        onChangeText={text => setQuery(text)}
         placeholder="Filme ou Nome do Personagem"
+        onChangeText={text => setQuery(text)}
+        value={query}
       />
 
-      <GridList type="search" data={results} loading={loading} />
+      <GridList loading={loading} type="search" data={results} />
     </ScreenView>
   );
 };

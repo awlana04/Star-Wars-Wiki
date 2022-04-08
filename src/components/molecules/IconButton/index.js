@@ -1,8 +1,9 @@
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 
-import { theme } from '~/styles/theme';
 import { Text } from '~/components/atoms';
+
+import { theme } from '~/styles/theme';
 
 import { IconButtonContainer } from './styles';
 

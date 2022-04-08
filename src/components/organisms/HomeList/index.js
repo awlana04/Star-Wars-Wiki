@@ -1,9 +1,10 @@
 import React from 'react';
 import { FlatList } from 'react-native';
 
-import { theme } from '~/styles/theme';
 import { Text } from '~/components/atoms';
 import { Card } from '~/components/molecules';
+
+import { theme } from '~/styles/theme';
 
 import { HomeListContainer } from './styles';
 
@@ -16,14 +17,14 @@ export const HomeList = ({ data, title, type }) => {
 
       <FlatList
         horizontal
-        data={data}
-        renderItem={({ item }) => <Card item={{ ...item, type }} />}
-        keyExtractor={item => item.id}
         contentContainerStyle={{
           paddingTop: theme.metrics.px(12),
           paddingLeft: theme.metrics.px(24),
           paddingBottom: theme.metrics.px(24),
         }}
+        data={data}
+        renderItem={({ item }) => <Card item={{ ...item, type }} />}
+        keyExtractor={item => item.id}
       />
     </HomeListContainer>
   );

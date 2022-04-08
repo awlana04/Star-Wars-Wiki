@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 
-import { useGetData } from '~/services/hooks';
-
 import {
   Container,
   Loader,
@@ -9,6 +7,8 @@ import {
   Hero,
   HomeList,
 } from '~/components';
+
+import { useGetData } from '~/services/hooks';
 
 export const Home = () => {
   const [loading, setLoading] = useState(true);
@@ -30,7 +30,7 @@ export const Home = () => {
 
   useEffect(() => {
     callGetData();
-  }, []);
+  }, [callGetData]);
 
   if (loading) {
     return (

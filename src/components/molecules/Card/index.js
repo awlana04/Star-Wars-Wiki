@@ -17,19 +17,20 @@ const sizes = {
 };
 
 export const Card = ({ item, size }) => {
-  const { setSelectedData } = dataStore();
-
   const navigation = useNavigation();
+
+  const { setSelectedData } = dataStore();
 
   const onSelectItem = () => {
     setSelectedData(item);
+
     navigation.navigate('Detail');
   };
 
   return (
     <CardContainer
-      onPress={() => onSelectItem()}
       size={size ? sizes[size] : sizes.small}
+      onPress={() => onSelectItem()}
     >
       <CardImage source={{ uri: item.image_url }} />
     </CardContainer>

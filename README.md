@@ -3,8 +3,17 @@
 </h1>
 
 <p align="center">
-  <a href="https://github.com/awlana04">
-    <img alt="Made by Awlana Costa" src="https://img.shields.io/badge/made%20by-Awlana Costa-%2300FF00">
+  <a href="https://reactnative.dev/">
+    <img src="./assets/react-native.png" width="32" height="32"/>
+  </a>
+  <a href="https://expo.dev/">
+    <img src="./assets/expo.png" width="32" height="32"/>
+  </a>
+  <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript">
+    <img src="./assets/javascript.png" width="32" height="32"/>
+  </a>
+  <a href="https://styled-components.com">
+  <img src="./assets/styled-compoennts.png" width="32" height="32"/>
   </a>
 </p>
 

@@ -73,6 +73,8 @@ Após começar a roda a aplicação, você será capaz de aberta a para caso que
 
 ## Links Úteis
 
+Layout do Figma: https://www.figma.com/file/iLiMlrDnspRdAsWAM42rtd
+
 API consumida pela aplicação: https://sevencoders-starwars-wiki.herokuapp.com
 
 ## Tecnologias Utilizadas

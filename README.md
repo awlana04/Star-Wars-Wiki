@@ -8,6 +8,12 @@
   </a>
 </p>
 
+<h1 align="center">
+
+![starwarswiki](https://user-images.githubusercontent.com/65423909/162582687-b7c2ea75-be22-4611-a0d2-eee549b1227a.gif)
+
+</h1>
+
 <p align="center">
   <a href="#sobre">Sobre</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
   <a href="#como-inicializar-o-projeto">Como baixar o projeto</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;

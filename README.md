@@ -4,18 +4,18 @@
 
 <p align="center">
   <a href="https://reactnative.dev/">
-    <img src="./assets/react-native.png" width="32" height="32"/>
-  </a>
-  <a href="https://expo.dev/">
-    <img src="./assets/expo.png" width="32" height="32"/>
+    <img src="https://img.shields.io/static/v1?label=react native&message=framework&color=red&style=for-the-badge&logo=REACT"/>
   </a>
   <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript">
-    <img src="./assets/javascript.png" width="32" height="32"/>
+    <img src="https://img.shields.io/static/v1?label=javascript&message=Lingugagem&color=red&style=for-the-badge&logo=JAVASCRIPT"/>
+  </a>
+  <a href="https://expo.dev/">
+    <img src="https://img.shields.io/static/v1?label=expo&message=~44.0.0&color=red&style=for-the-badge&logo=EXPO"/>
   </a>
   <a href="https://styled-components.com">
-  <img src="./assets/styled-compoennts.png" width="32" height="32"/>
+    <img src="https://img.shields.io/static/v1?label=styled-components&message=5.3.5&color=red&style=for-the-badge&logo=STYLED-COMPONENTS"/>
   </a>
-</p>
+ </p>
 
 <h1 align="center">
 

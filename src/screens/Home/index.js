@@ -30,7 +30,7 @@ export const Home = () => {
 
   useEffect(() => {
     callGetData();
-  }, [callGetData]);
+  }, []);
 
   if (loading) {
     return (

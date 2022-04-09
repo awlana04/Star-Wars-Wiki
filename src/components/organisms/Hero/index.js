@@ -58,7 +58,7 @@ export const Hero = ({ item, onDetail }) => {
   const closeFavoriteModal = () => {
     setTimeout(() => {
       setShowFavoriteModal(null);
-    }, 3000);
+    }, 2000);
   };
 
   const addDataToFavorites = async () => {
